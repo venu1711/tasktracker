@@ -1,18 +1,19 @@
 package com.tasktracker.tasktracker.services;
 
 import com.tasktracker.tasktracker.dto.TaskDto;
-import org.springframework.http.ResponseEntity;
+import com.tasktracker.tasktracker.entities.Task;
 
 import java.util.Optional;
 
-public interface TaskService {
-    TaskDto createTask(TaskDto taskDto);
 
-    Optional<TaskDto> getTask(Long id);
+public interface TaskService {
+    Task createTask(Task task);
+
+    Optional<Task> getTask(Long id);
 
     void deleteTask(Long id);
 
     boolean isExists(Long id);
 
-    TaskDto updateTask(Long id, TaskDto taskDto);
+    Task updateTask(Long id, Task task);
 }

@@ -1,11 +1,12 @@
 package com.tasktracker.tasktracker.dto;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-
+@Data
+@Builder
 public class TaskDto {
     private Long id;
 
