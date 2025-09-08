@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -27,4 +29,17 @@ public class Task {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @ManyToMany
+    @JoinTable(
+            name = "task_user",
+            joinColumns = @JoinColumn(name = "task_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+
+    private List<User> assignedUsers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "parentTask",cascade = CascadeType.ALL)
+    private List<Task> subTasks = new ArrayList<>();
+
 }
